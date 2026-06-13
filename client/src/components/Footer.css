@@ -1,0 +1,97 @@
+.footer {
+  position: relative;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 80px 0 0;
+  margin-top: 100px;
+  overflow: hidden;
+}
+.footer-glow {
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 120px;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.6fr;
+  gap: 60px;
+  padding-bottom: 60px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.footer-tagline {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 260px;
+}
+.socials { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.social-btn:hover {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.footer-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-link { font-size: 14px; color: var(--text2); transition: var(--transition); }
+.footer-link:hover { color: var(--text); padding-left: 6px; }
+.footer-sub { font-size: 13px; color: var(--text2); margin-bottom: 16px; line-height: 1.6; }
+.newsletter-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.newsletter-btn { width: 100%; }
+.trust-badges { display: flex; flex-direction: column; gap: 10px; }
+.trust-item { font-size: 12px; color: var(--text3); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text3);
+}
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { color: var(--text3); transition: color 0.2s; }
+.footer-legal a:hover { color: var(--text2); }
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}

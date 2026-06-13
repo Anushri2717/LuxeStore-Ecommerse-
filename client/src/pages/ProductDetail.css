@@ -1,0 +1,153 @@
+.pd-page { padding-top: 80px; padding-bottom: 80px; }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text3);
+  padding: 24px 0;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--text2); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--gold); }
+
+.pd-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  padding-bottom: 60px;
+}
+.pd-skeleton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 40px 0 60px;
+}
+.pd-images { display: flex; flex-direction: column; gap: 12px; }
+.pd-main-img {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  aspect-ratio: 1;
+}
+.pd-main-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.pd-main-img:hover img { transform: scale(1.04); }
+.pd-discount-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--red);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pd-wishlist-btn {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(10,10,11,0.7);
+  backdrop-filter: blur(8px);
+  color: var(--text2);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.pd-wishlist-btn:hover { background: rgba(224,92,92,0.2); color: var(--red); border-color: var(--red); }
+.pd-wishlist-btn.active { color: var(--red); background: rgba(224,92,92,0.15); border-color: var(--red); }
+.pd-thumbnails { display: flex; gap: 8px; }
+.pd-thumb {
+  width: 72px; height: 72px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  transition: var(--transition);
+}
+.pd-thumb:hover, .pd-thumb.active { border-color: var(--gold); }
+.pd-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.pd-info { display: flex; flex-direction: column; gap: 16px; }
+.pd-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.stock-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(92,186,138,0.15);
+  color: var(--green);
+  border: 1px solid rgba(92,186,138,0.3);
+}
+.stock-badge.low { background: rgba(224,92,92,0.15); color: var(--red); border-color: rgba(224,92,92,0.3); }
+.pd-category { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.pd-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.pd-rating { display: flex; align-items: center; gap: 10px; }
+.pd-rating-num { font-weight: 700; font-size: 14px; }
+.pd-reviews { font-size: 13px; color: var(--text3); }
+.pd-pricing { display: flex; align-items: center; gap: 16px; }
+.pd-price { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--text); }
+.pd-original { font-size: 16px; color: var(--text3); text-decoration: line-through; }
+.pd-save { font-size: 13px; font-weight: 700; color: var(--green); background: rgba(92,186,138,0.12); padding: 4px 10px; border-radius: 6px; }
+.pd-divider { height: 1px; background: var(--border); }
+.pd-desc { font-size: 15px; color: var(--text2); line-height: 1.8; }
+.pd-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.pd-tag {
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--text3);
+  transition: var(--transition);
+}
+.pd-tag:hover { border-color: var(--border2); color: var(--text2); }
+.pd-qty-row { display: flex; align-items: center; gap: 20px; }
+.pd-label { font-size: 14px; font-weight: 500; color: var(--text2); min-width: 70px; }
+.pd-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.pd-qty .qty-btn { border-radius: 0; width: 40px; height: 40px; background: var(--surface); font-size: 18px; transition: var(--transition); }
+.pd-qty .qty-btn:hover { background: var(--gold); color: var(--bg); }
+.pd-qty span { padding: 0 20px; font-size: 15px; font-weight: 600; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+.pd-actions { display: flex; gap: 12px; }
+.pd-add-btn { flex: 1; padding: 15px 24px; font-size: 15px; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.pd-add-btn.added { background: linear-gradient(135deg, var(--green), #4ca87a); }
+.pd-buy-btn { flex: 1; padding: 15px 24px; font-size: 15px; }
+.pd-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pd-feature { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text3); padding: 8px 12px; background: var(--surface); border-radius: 8px; }
+
+.pd-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.pd-tab { padding: 12px 24px; background: transparent; color: var(--text2); font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: var(--transition); }
+.pd-tab:hover { color: var(--text); }
+.pd-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+.pd-tab-content { color: var(--text2); font-size: 15px; line-height: 1.8; max-width: 800px; }
+.spec-table { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.spec-row { display: flex; border-bottom: 1px solid var(--border); }
+.spec-row:last-child { border-bottom: none; }
+.spec-key { padding: 12px 20px; background: var(--surface); width: 160px; flex-shrink: 0; font-size: 13px; font-weight: 600; color: var(--text2); border-right: 1px solid var(--border); }
+.spec-val { padding: 12px 20px; font-size: 13px; color: var(--text); }
+.pd-related { padding-top: 60px; border-top: 1px solid var(--border); margin-top: 60px; }
+
+@media (max-width: 900px) {
+  .pd-main { grid-template-columns: 1fr; gap: 40px; }
+  .pd-skeleton { grid-template-columns: 1fr; }
+  .pd-features { grid-template-columns: 1fr; }
+}
