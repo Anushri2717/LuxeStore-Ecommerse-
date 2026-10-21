@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import axios from 'axios';
+import { BASE } from '../hooks/useApi';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -45,7 +46,7 @@ const Checkout = () => {
   const placeOrder = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/checkout', { items, total: grandTotal });
+      const res = await axios.post(`${BASE}/checkout`, { items, total: grandTotal });
       setOrderId(res.data.orderId);
       dispatch({ type: 'CLEAR' });
       setStep(4);
