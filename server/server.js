@@ -8,8 +8,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+const api = express.Router();
+
 // GET all products
-app.get('/api/products', (req, res) => {
+api.get('/products', (req, res) => {
   const { category, search, sort, limit } = req.query;
   let products = [...data.products];
 
@@ -34,7 +36,7 @@ app.get('/api/products', (req, res) => {
 });
 
 // GET single product
-app.get('/api/products/:id', (req, res) => {
+api.get('/products/:id', (req, res) => {
   const product = data.products.find(p => p.id === parseInt(req.params.id));
   if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
   const related = data.products
@@ -44,22 +46,22 @@ app.get('/api/products/:id', (req, res) => {
 });
 
 // GET categories
-app.get('/api/categories', (req, res) => {
+api.get('/categories', (req, res) => {
   res.json({ success: true, data: data.categories });
 });
 
 // GET banners
-app.get('/api/banners', (req, res) => {
+api.get('/banners', (req, res) => {
   res.json({ success: true, data: data.banners });
 });
 
 // GET testimonials
-app.get('/api/testimonials', (req, res) => {
+api.get('/testimonials', (req, res) => {
   res.json({ success: true, data: data.testimonials });
 });
 
 // POST add to cart (mock)
-app.post('/api/cart', (req, res) => {
+api.post('/cart', (req, res) => {
   const { productId, quantity } = req.body;
   const product = data.products.find(p => p.id === productId);
   if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
@@ -67,11 +69,15 @@ app.post('/api/cart', (req, res) => {
 });
 
 // POST checkout (mock)
-app.post('/api/checkout', (req, res) => {
+api.post('/checkout', (req, res) => {
   const { items, total } = req.body;
   const orderId = 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
   res.json({ success: true, orderId, message: 'Order placed successfully', total });
 });
+
+// Serve routes under /api, and at the root in case the /api prefix is stripped upstream
+app.use('/api', api);
+app.use('/', api);
 
 // Start a server when run directly (npm start); Vercel imports the exported app instead
 if (require.main === module) {
