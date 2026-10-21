@@ -3,7 +3,7 @@ const cors = require('cors');
 const data = require('./data.json');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -73,4 +73,9 @@ app.post('/api/checkout', (req, res) => {
   res.json({ success: true, orderId, message: 'Order placed successfully', total });
 });
 
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+// Start a server when run directly (npm start); Vercel imports the exported app instead
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+}
+
+module.exports = app;
